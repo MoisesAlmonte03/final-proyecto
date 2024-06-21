@@ -13,6 +13,18 @@ class Reserva:
         self.hora = hora
         Reserva.ReservaID += 1
 
+
+
+
+        
+
+class Restaurante:
+    def __init__(self):
+        self.reservas = []
+
+
+
+
 def menu():
     while True:
         os.system("cls")
@@ -31,7 +43,7 @@ def menu():
 
         elif opcion == "2":
             print("\n----- Listado de Reservas -----")
-            
+
         elif opcion == "4":
             print("Programa finalizado.")
             break
