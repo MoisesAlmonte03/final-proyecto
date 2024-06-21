@@ -35,14 +35,20 @@ class Restaurante:
             json.dump(data, file)
 
     def cargar_reservas(self):
-            with open('reservas.json', 'r') as file:
-                data = json.load(file)
-                for reserva_data in data:
-                    reserva = Reserva(reserva_data['nombre_cliente'], reserva_data['numero_personas'],
-                                      reserva_data['fecha'], reserva_data['hora']) 
-                    self.reservas.append(reserva)
+        with open('reservas.json', 'r') as file:
+            data = json.load(file)
+            for reserva_data in data:
+                reserva = Reserva(reserva_data['nombre_cliente'], reserva_data['numero_personas'],
+                                    reserva_data['fecha'], reserva_data['hora']) 
+                self.reservas.append(reserva)
+
+    def agregar_reserva(self, reserva):
+        for elemento in self.reservas:
+            self.reservas.append(reserva)
+            self.guardar_reservas()
 
 def menu():
+    restaurante = Restaurante()
     while True:
         os.system("cls")
         print("----- Menú -----")
@@ -57,6 +63,8 @@ def menu():
             numero_personas = int(input("Ingrese el número de personas para la reserva: "))
             fecha = input("Ingrese la fecha de la reserva (DD/MM/YYYY): ")
             hora = input("Ingrese la hora de la reserva (HH): ")
+            reserva_nueva = Reserva(nombre_cliente, numero_personas, fecha, hora)
+            restaurante.agregar_reserva(reserva_nueva)
 
         elif opcion == "2":
             print("\n----- Listado de Reservas -----")
