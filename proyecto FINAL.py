@@ -27,7 +27,11 @@ def menu():
             nombre_cliente = input("Ingrese el nombre del cliente: ")
             numero_personas = int(input("Ingrese el número de personas para la reserva: "))
             fecha = input("Ingrese la fecha de la reserva (DD/MM/YYYY): ")
+            hora = input("Ingrese la hora de la reserva (HH): ")
 
+        elif opcion == "2":
+            print("\n----- Listado de Reservas -----")
+            
         elif opcion == "4":
             print("Programa finalizado.")
             break
