@@ -15,13 +15,20 @@ class Reserva:
 
 def menu():
     while True:
+        os.system("cls")
         print("----- Menú -----")
         print("1. Agregar reserva")
         print("2. Listar reservas")
         print("3. Cancelar reserva")
         print("4. Salir")
         opcion = input("Ingrese el número de la opción que desea: ")
-        if opcion == "4":
+
+        if opcion == "1":
+            nombre_cliente = input("Ingrese el nombre del cliente: ")
+            numero_personas = int(input("Ingrese el número de personas para la reserva: "))
+            fecha = input("Ingrese la fecha de la reserva (DD/MM/YYYY): ")
+
+        elif opcion == "4":
             print("Programa finalizado.")
             break
 
