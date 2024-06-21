@@ -47,6 +47,10 @@ class Restaurante:
             self.reservas.append(reserva)
             self.guardar_reservas()
 
+    def listar_reservas(self):
+        for reserva in self.reservas:
+            print(reserva)
+
 def menu():
     restaurante = Restaurante()
     while True:
@@ -68,7 +72,8 @@ def menu():
 
         elif opcion == "2":
             print("\n----- Listado de Reservas -----")
-
+            restaurante.listar_reservas()
+            
         elif opcion == "4":
             print("Programa finalizado.")
             break
