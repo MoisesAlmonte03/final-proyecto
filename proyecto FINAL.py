@@ -69,11 +69,17 @@ def menu():
             hora = input("Ingrese la hora de la reserva (HH): ")
             reserva_nueva = Reserva(nombre_cliente, numero_personas, fecha, hora)
             restaurante.agregar_reserva(reserva_nueva)
+            input("\nReserva agregada correctamente. Presione ENTER para continuar.")
 
         elif opcion == "2":
             print("\n----- Listado de Reservas -----")
             restaurante.listar_reservas()
-            
+            input("\nPresione ENTER para continuar.")
+
+        elif opcion == "3":
+            reserva_id = int(input("Ingrese el ID de la reserva que desea cancelar: "))
+            input("\nPresione ENTER para continuar.")
+
         elif opcion == "4":
             print("Programa finalizado.")
             break
