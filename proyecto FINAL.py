@@ -12,3 +12,13 @@ class Reserva:
         self.fecha = fecha
         self.hora = hora
         Reserva.ReservaID += 1
+
+def menu():
+    print("----- Menú -----")
+    print("1. Agregar reserva")
+    print("2. Listar reservas")
+    print("3. Cancelar reserva")
+    print("4. Salir")
+    opcion = input("Ingrese el número de la opción que desea: ")
+
+menu()
