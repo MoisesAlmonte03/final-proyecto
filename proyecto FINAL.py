@@ -14,11 +14,15 @@ class Reserva:
         Reserva.ReservaID += 1
 
 def menu():
-    print("----- Menú -----")
-    print("1. Agregar reserva")
-    print("2. Listar reservas")
-    print("3. Cancelar reserva")
-    print("4. Salir")
-    opcion = input("Ingrese el número de la opción que desea: ")
+    while True:
+        print("----- Menú -----")
+        print("1. Agregar reserva")
+        print("2. Listar reservas")
+        print("3. Cancelar reserva")
+        print("4. Salir")
+        opcion = input("Ingrese el número de la opción que desea: ")
+        if opcion == "4":
+            print("Programa finalizado.")
+            break
 
 menu()
