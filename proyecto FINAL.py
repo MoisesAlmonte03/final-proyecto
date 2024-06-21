@@ -12,18 +12,35 @@ class Reserva:
         self.fecha = fecha
         self.hora = hora
         Reserva.ReservaID += 1
+    
+    def __str__(self):
+        string = f"ID: {self.id} - Cliente: {self.nombre_cliente} - Personas: {self.numero_personas} - Fecha: {self.fecha} - Hora: {self.hora}"
+        return string
+
+    def to_dict(self):
+        diccionario = {"id": self.id, "nombre_cliente": self.nombre_cliente, 
+                       "numero_personas": self.numero_personas, "fecha": self.fecha, "hora": self.hora}
+        return diccionario
 
 
 
-
-        
 
 class Restaurante:
     def __init__(self):
         self.reservas = []
 
+    def guardar_reservas(self):
+        with open('reservas.json', 'w') as file: 
+            data = [reserva.to_dict() for reserva in self.reservas]
+            json.dump(data, file)
 
-
+    def cargar_reservas(self):
+            with open('reservas.json', 'r') as file:
+                data = json.load(file)
+                for reserva_data in data:
+                    reserva = Reserva(reserva_data['nombre_cliente'], reserva_data['numero_personas'],
+                                      reserva_data['fecha'], reserva_data['hora']) 
+                    self.reservas.append(reserva)
 
 def menu():
     while True:
