@@ -51,6 +51,15 @@ class Restaurante:
         for reserva in self.reservas:
             print(reserva)
 
+    def cancelar_reserva(self, reserva_id):
+        for reserva in self.reservas:
+            if reserva.id == reserva_id:
+                self.reservas.remove(reserva)
+                self.guardar_reservas()
+                print(f"\nReserva ID {reserva_id} ha sido exitosamente cancelada.")
+                return
+        print(f"No hay ninguna reserva con ID {reserva_id}.")
+
 def menu():
     restaurante = Restaurante()
     while True:
@@ -78,10 +87,15 @@ def menu():
 
         elif opcion == "3":
             reserva_id = int(input("Ingrese el ID de la reserva que desea cancelar: "))
+            restaurante.cancelar_reserva(reserva_id)
             input("\nPresione ENTER para continuar.")
 
         elif opcion == "4":
             print("Programa finalizado.")
             break
+
+        else:
+            print("Opción inválida. Por favor, ingrese un número válido.")
+            input("\nPresione ENTER para continuar.")
 
 menu()
